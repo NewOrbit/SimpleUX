@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react";
+import { MuiDecorator, MuiDocsContainer } from "./MuiDecorator";
 
 const preview: Preview = {
   parameters: {
@@ -20,7 +21,11 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    docs: {
+      container: MuiDocsContainer,
+    },
   },
+  decorators: [MuiDecorator],
 };
 
 export default preview;

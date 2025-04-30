@@ -8,6 +8,8 @@ import {
   IconButton,
   Slider,
   Stack,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import {
   MdPlayArrow,
@@ -29,65 +31,23 @@ export const Controls = () => {
   }: {
     spacing: number;
     isDistributed?: boolean;
-  }) => (
-    <Box>
-      <Box
-        sx={{
-          display: "flex",
-          width: "100%",
-          ...(isDistributed
-            ? { justifyContent: "space-between" }
-            : { justifyContent: "space-between", gap: spacing }),
-        }}
-      >
-        {/* Playback controls - distributed individually in poor example */}
-        {isDistributed ? (
-          <>
-            <IconButton size="small" sx={{ color: "white" }}>
-              <MdSkipPrevious size={24} />
-            </IconButton>
-            <IconButton size="small" sx={{ color: "white" }}>
-              <MdPlayArrow size={24} />
-            </IconButton>
-            <IconButton size="small" sx={{ color: "white" }}>
-              <MdSkipNext size={24} />
-            </IconButton>
+  }) => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-            {/* Volume */}
-            <IconButton size="small" sx={{ color: "white" }}>
-              <MdVolumeUp size={24} />
-            </IconButton>
-            <Slider
-              size="small"
-              defaultValue={70}
-              sx={{
-                color: "#fff",
-                width: 100,
-                "& .MuiSlider-thumb": {
-                  width: 12,
-                  height: 12,
-                },
-              }}
-            />
-
-            {/* Settings controls - distributed individually */}
-            <IconButton size="small" sx={{ color: "white" }}>
-              <MdClosedCaption size={24} />
-            </IconButton>
-            <IconButton size="small" sx={{ color: "white" }}>
-              <MdSpeed size={24} />
-            </IconButton>
-            <IconButton size="small" sx={{ color: "white" }}>
-              <MdSettings size={24} />
-            </IconButton>
-            <IconButton size="small" sx={{ color: "white" }}>
-              <MdFullscreen size={24} />
-            </IconButton>
-          </>
-        ) : (
-          <>
-            {/* Left controls group */}
-            <Stack direction="row" spacing={spacing / 4}>
+    return (
+      <Box>
+        <Box
+          sx={{
+            display: "flex",
+            width: "100%",
+            ...(isDistributed
+              ? { justifyContent: "space-between" }
+              : { justifyContent: "space-between", gap: spacing }),
+          }}
+        >
+          {isDistributed ? (
+            <>
               <IconButton size="small" sx={{ color: "white" }}>
                 <MdSkipPrevious size={24} />
               </IconButton>
@@ -97,29 +57,29 @@ export const Controls = () => {
               <IconButton size="small" sx={{ color: "white" }}>
                 <MdSkipNext size={24} />
               </IconButton>
-            </Stack>
 
-            {/* Volume controls */}
-            <Stack direction="row" spacing={spacing / 4} alignItems="center">
-              <IconButton size="small" sx={{ color: "white" }}>
-                <MdVolumeUp size={24} />
-              </IconButton>
-              <Slider
-                size="small"
-                defaultValue={70}
-                sx={{
-                  color: "#fff",
-                  width: 100,
-                  "& .MuiSlider-thumb": {
-                    width: 12,
-                    height: 12,
-                  },
-                }}
-              />
-            </Stack>
+              {/* Volume */}
+              {!isMobile && (
+                <>
+                  <IconButton size="small" sx={{ color: "white" }}>
+                    <MdVolumeUp size={24} />
+                  </IconButton>
+                  <Slider
+                    size="small"
+                    defaultValue={70}
+                    sx={{
+                      color: "#fff",
+                      width: 100,
+                      "& .MuiSlider-thumb": {
+                        width: 12,
+                        height: 12,
+                      },
+                    }}
+                  />
+                </>
+              )}
 
-            {/* Right controls group */}
-            <Stack direction="row" spacing={spacing / 4}>
+              {/* Settings controls - distributed individually */}
               <IconButton size="small" sx={{ color: "white" }}>
                 <MdClosedCaption size={24} />
               </IconButton>
@@ -132,15 +92,72 @@ export const Controls = () => {
               <IconButton size="small" sx={{ color: "white" }}>
                 <MdFullscreen size={24} />
               </IconButton>
-            </Stack>
-          </>
-        )}
+            </>
+          ) : (
+            <>
+              {/* Left controls group */}
+              <Stack direction="row" spacing={spacing / 4}>
+                <IconButton size="small" sx={{ color: "white" }}>
+                  <MdSkipPrevious size={24} />
+                </IconButton>
+                <IconButton size="small" sx={{ color: "white" }}>
+                  <MdPlayArrow size={24} />
+                </IconButton>
+                <IconButton size="small" sx={{ color: "white" }}>
+                  <MdSkipNext size={24} />
+                </IconButton>
+              </Stack>
+
+              {/* Volume controls */}
+
+              {!isMobile && (
+                <Stack
+                  direction="row"
+                  spacing={spacing / 4}
+                  alignItems="center"
+                >
+                  <IconButton size="small" sx={{ color: "white" }}>
+                    <MdVolumeUp size={24} />
+                  </IconButton>
+                  <Slider
+                    size="small"
+                    defaultValue={70}
+                    sx={{
+                      color: "#fff",
+                      width: 100,
+                      "& .MuiSlider-thumb": {
+                        width: 12,
+                        height: 12,
+                      },
+                    }}
+                  />
+                </Stack>
+              )}
+
+              {/* Right controls group */}
+              <Stack direction="row" spacing={spacing / 4}>
+                <IconButton size="small" sx={{ color: "white" }}>
+                  <MdClosedCaption size={24} />
+                </IconButton>
+                <IconButton size="small" sx={{ color: "white" }}>
+                  <MdSpeed size={24} />
+                </IconButton>
+                <IconButton size="small" sx={{ color: "white" }}>
+                  <MdSettings size={24} />
+                </IconButton>
+                <IconButton size="small" sx={{ color: "white" }}>
+                  <MdFullscreen size={24} />
+                </IconButton>
+              </Stack>
+            </>
+          )}
+        </Box>
       </Box>
-    </Box>
-  );
+    );
+  };
 
   return (
-    <Container>
+    <Container sx={{ pb: 8 }}>
       <Grid container spacing={4}>
         {/* Poor spacing example */}
         <Grid item xs={12}>

@@ -20,7 +20,7 @@ export const Whitespace = () => {
   ];
 
   return (
-    <Container>
+    <Container sx={{ pb: 8 }}>
       <Grid container spacing={8}>
         {/* Column with cramped cards */}
         <Grid item xs={12} md={6}>
