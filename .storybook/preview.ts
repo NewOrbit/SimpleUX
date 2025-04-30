@@ -9,6 +9,7 @@ const preview: Preview = {
           "HowToUse",
           "Fundamentals",
           "Design Thinking",
+          "UI Design",
           "Best Practices",
         ],
       },
