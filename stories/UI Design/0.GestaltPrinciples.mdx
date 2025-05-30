@@ -2,6 +2,20 @@ import { Meta } from '@storybook/blocks';
 import { Whitespace } from '../components/gestalt/proximity/Whitespace';
 import { FormFields } from '../components/gestalt/proximity/FormFields';
 import { Controls } from '../components/gestalt/proximity/Controls';
+import { ButtonHierarchy } from '../components/gestalt/similarity/ButtonHierarchy';
+import { CardConsistency } from '../components/gestalt/similarity/CardConsistency';
+import { IconConsistency } from '../components/gestalt/similarity/IconConsistency';
+import { ColorCoding } from '../components/gestalt/similarity/ColorCoding';
+import { Navigation } from '../components/gestalt/continuity/Navigation';
+import { ProgressFlow } from '../components/gestalt/continuity/ProgressFlow';
+import { CardAlignment } from '../components/gestalt/continuity/CardAlignment';
+import { MinimalTables } from '../components/gestalt/closure/MinimalTables';
+import { ImpliedContainers } from '../components/gestalt/closure/ImpliedContainers';
+import { CleanInterface } from '../components/gestalt/closure/CleanInterface';
+import { ElementVisibility } from '../components/gestalt/figureground/ElementVisibility';
+import { BackgroundBlur } from '../components/gestalt/figureground/BackgroundBlur';
+import { CoordinatedAnimation } from '../components/gestalt/commonfate/CoordinatedAnimation';
+import { LoadingButtons } from '../components/gestalt/commonfate/LoadingButtons';
 
 <Meta title="UI Design/Gestalt Principles" />
 
@@ -15,22 +29,22 @@ Gestalt principles are a set of guidelines that describe how the human brain org
 
 ---
 
-### Law of Proximity  
+### 1. Law of Proximity  
 
 >Elements close together are perceived as related.
 
 Whitespace is your ally here. By placing related items near each other and separating unrelated ones, you create visual hierarchies that users instinctively understand. For example, grouping "Save" and "Cancel" buttons together signals they control the same action, while distancing them from a navigation menu avoids confusion.
 
 **Tips:**  
-- Use whitespaces to separate sections that do not belong together
+- Separate unrelated interface sections with generous whitespace (e.g., keep main content clearly separated from sidebar and footer)
 
 <Whitespace />
 
-- Group form fields by category (e.g., "Billing Address" and "Shipping Address").
+- Group related form fields together and separate different categories (e.g., "Billing Address" and "Shipping Address" should be distinct sections)
 
 <FormFields />
 
-- Avoid scattering controls that share functionality. 
+- Cluster action buttons by functionality (e.g., place "Save" and "Cancel" together, but keep "Delete" button separated)
 
 <Controls />
 
@@ -40,74 +54,127 @@ Whitespace is your ally here. By placing related items near each other and separ
 - Organized layouts accelerate user comprehension.  
 
 ### 2. Law of Similarity  
-**Similar elements are perceived as part of a group.**  
-Consistency in style, color, or shape creates a sense of unity. For instance, buttons with identical styling signal equal importance, while a differently styled button (e.g., red and bold) stands out as a primary action.
 
-**Tips for applying similarity:**  
-- Maintain consistent styling for elements with the same function (e.g., all secondary buttons).  
-- Use distinct visual styles to differentiate priority levels (e.g., primary vs. tertiary actions).  
-- Keep icon sizes uniform in toolbars for cohesion.  
+>Similar elements are perceived as part of a group.
+
+Consistency in style, color, or shape creates a sense of unity. For instance, buttons with identical styling signal equal importance, while a differently styled button (e.g., red and bold) stands out as a primary action. This principle helps users quickly identify which elements belong together and understand their relative importance.
+
+**Tips:**  
+- Maintain consistent styling for elements with the same function (e.g., all secondary buttons should look identical)
+
+<ButtonHierarchy />
+
+- Keep consistent layouts and styling for similar content types (e.g., all product cards, all article previews)
+
+<CardConsistency />
+
+- Keep icon sizes and styles uniform within the same context (e.g., toolbar icons, navigation icons)
+
+<IconConsistency />
+
+- Use the same primary brand color consistently across all primary actions throughout your application
+
+<ColorCoding />
 
 **Key takeaways:**  
-- Visual consistency reduces learning curves.  
-- Styling differences guide attention and hierarchy.  
-- Repetition fosters familiarity and trust.  
+- Visual consistency reduces learning curves and cognitive load
+- Styling differences guide attention and establish hierarchy  
+- Repetition of visual patterns fosters familiarity and trust
+- Similar appearance implies similar behavior or function
 
 ### 3. Law of Continuity  
-**Elements aligned in a line or curve are seen as connected.**  
-Our eyes follow the smoothest path, making alignment a powerful tool. For example, a horizontal menu with evenly spaced items feels like a unified navigation bar, while a staggered layout might break that perception.
 
-**Tips for applying continuity:**  
-- Use lines or shapes to connect progress steps (e.g., a checkout timeline).  
-- Align sequential elements (e.g., cards in a carousel) along a common axis.  
-- Design navigation menus as continuous horizontal/vertical elements.  
+>Elements aligned in a line or curve are seen as connected.
+
+Our eyes follow the smoothest path, making alignment a powerful tool. For example, a horizontal menu with evenly spaced items feels like a unified navigation bar, while a staggered layout might break that perception. This principle helps create clear visual paths that guide users through your interface.
+
+**Tips:**  
+- Connect related steps or processes with visual lines, arrows, or progress indicators (e.g., multi-step checkout, onboarding flows)
+
+<ProgressFlow />
+
+- Maintain consistent alignment for sequential content to create reading flow (e.g., cards in a grid, items in a feed)
+
+<CardAlignment />
+
+- Use consistent spacing and alignment in navigation to signal it's a unified system rather than scattered links
+
+<Navigation />
 
 **Key takeaways:**  
-- Lines and alignment imply relationships.  
-- Smooth visual flow enhances user guidance.  
-- Disrupted continuity can signal separation.  
+- Lines and alignment imply relationships and create visual flow
+- Smooth visual paths enhance user guidance and navigation
+- Disrupted continuity can signal separation or break in sequence
+- Consistent alignment reduces cognitive load and improves comprehension
 
 ### 4. Law of Closure  
-**The brain fills in missing parts to perceive complete shapes.**  
-Minimalist designs thrive on this principle. For example, a table without borders can still feel structured if rows are spaced appropriately, letting users "see" the grid through implied lines.
 
-**Tips for applying closure:**  
-- Omit borders in tables but use row dividers for structure.  
-- Leverage whitespace to imply containers (e.g., card backgrounds).  
-- Simplify cluttered UIs by removing non-essential lines.  
+>The brain fills in missing parts to perceive complete shapes.
+
+Minimalist designs thrive on this principle. For example, a table without borders can still feel structured if rows are spaced appropriately, letting users "see" the grid through implied lines. This allows for cleaner, less cluttered interfaces that still maintain clear organization.
+
+**Tips:**  
+- Remove unnecessary borders in data tables and rely on subtle row separators or alternating backgrounds for structure
+
+<MinimalTables />
+
+- Use whitespace and consistent spacing to group related content instead of boxing everything with visible borders
+
+<ImpliedContainers />
+
+- Remove decorative lines, excess borders, and visual clutter that don't serve a functional purpose
+
+<CleanInterface />
 
 **Key takeaways:**  
-- Less detail can enhance clarity.  
-- Users mentally complete partial visuals.  
-- Whitespace is a tool, not wasted space.  
+- Less visual detail can enhance clarity and focus
+- Users mentally complete partial visuals automatically
+- Whitespace is a powerful design tool, not wasted space
+- Implied boundaries often work better than explicit ones
 
 ### 5. Law of Figure-Ground  
-**The brain separates elements from their background.**  
-This principle underpins visual hierarchy. A modal dialog with a shadowed backdrop "pops" forward, while a blurred background focuses attention on a sidebar.
 
-**Tips for applying figure-ground:**  
-- Use shadows or contrasting colors to emphasize interactive elements (e.g., floating buttons).  
-- Darken or blur backgrounds to highlight foreground content.  
-- Position critical elements in high-contrast areas.  
+>The brain separates elements from their background.
+
+This principle underpins visual hierarchy. A modal dialog with a shadowed backdrop "pops" forward, while a blurred background focuses attention on a sidebar. Strong contrast helps users distinguish between what's important (figure) and what's contextual (ground).
+
+**Tips:**  
+- Use shadows, borders, or contrasting colors to make interactive elements stand out from their background (e.g., floating action buttons, primary CTAs)
+
+<ElementVisibility />
+
+- Darken or blur backgrounds to highlight foreground content like modals, dropdowns, or important announcements
+
+<BackgroundBlur />
+
+- Ensure sufficient color contrast (at least 4.5:1 ratio) between text and background for accessibility and visual hierarchy
 
 **Key takeaways:**  
-- Contrast directs focus.  
-- Layering creates depth and priority.  
-- Backgrounds should never compete with content.  
+- Contrast directs focus and establishes visual hierarchy
+- Layering creates depth and priority in your interface
+- Backgrounds should never compete with foreground content
+- Strong figure-ground separation improves accessibility and usability
 
 ### 6. Law of Common Fate  
-**Elements moving together are perceived as related.**  
-Animation is key here. For example, a button that displays a spinner upon click reinforces the action’s cause-and-effect relationship. Similarly, synchronized hover effects on menu items signal they belong to the same group.
 
-**Tips for applying common fate:**  
-- Animate related elements simultaneously (e.g., expanding accordions).  
-- Use loading indicators within buttons to show progress.  
-- Avoid animating unrelated elements together to prevent confusion.  
+>Elements moving together are perceived as related.
+
+This principle extends beyond animation to any shared behavior or state change. For example, a button that displays a spinner upon click reinforces the action's cause-and-effect relationship. Similarly, when multiple elements respond to the same user action (like hovering over a card and seeing related elements highlight), they feel connected. This creates intuitive feedback systems that help users understand relationships and system responses.
+
+**Tips:**  
+- Ensure related elements respond together to user interactions (e.g., when hovering over a card, all its elements should provide coordinated visual feedback)
+
+<CoordinatedAnimation />
+
+- Show loading state within the element that triggered the action to create clear cause-and-effect relationships (e.g., loading spinners inside buttons for individual actions, versus global loading indicators for page-level operations)
+
+<LoadingButtons />
 
 **Key takeaways:**  
-- Motion reinforces relationships.  
-- Coordinated animations improve feedback.  
-- Overuse of motion can overwhelm users.
+- Motion reinforces relationships and groupings
+- Coordinated animations improve feedback and user understanding
+- Overuse of motion can overwhelm users and reduce usability
+- Timing and synchronization are crucial for effective animations
 
 ---
 

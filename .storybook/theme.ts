@@ -42,15 +42,15 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: "#1EA7FD", // Storybook's primary blue color
-      light: "#50B9FF",
-      dark: "#0074E8",
+      main: "#1565c0", // Deep navy blue
+      light: "#5e92f3",
+      dark: "#003c8f",
       contrastText: "#FFFFFF",
     },
     secondary: {
-      main: "#FC521F", // Storybook's secondary color
-      light: "#FF7452",
-      dark: "#D43B0D",
+      main: "#ff8f00", // Warm gold
+      light: "#ffbc45",
+      dark: "#f57c00",
       contrastText: "#FFFFFF",
     },
     background: {
