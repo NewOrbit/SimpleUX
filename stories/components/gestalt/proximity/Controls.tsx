@@ -157,7 +157,7 @@ export const Controls = () => {
   };
 
   return (
-    <Container sx={{ pb: 8 }}>
+    <Container sx={{ pb: 6 }}>
       <Grid container spacing={4}>
         {/* Poor spacing example */}
         <Grid item xs={12}>

@@ -86,7 +86,7 @@ export const IconConsistency = () => {
   );
 
   return (
-    <Container sx={{ pb: 4 }}>
+    <Container sx={{ pb: 6 }}>
       <Grid container spacing={4}>
         {/* Inconsistent example */}
         <Grid item xs={12} md={6}>

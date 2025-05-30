@@ -88,7 +88,7 @@ export const FormFields = () => {
   );
 
   return (
-    <Container sx={{ pb: 8 }}>
+    <Container sx={{ pb: 6 }}>
       <Grid container spacing={8}>
         {/* Column with cramped form */}
         <Grid item xs={12} md={6}>
