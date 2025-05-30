@@ -46,7 +46,7 @@ export const ProgressFlow = () => {
       <Typography variant="subtitle2" sx={{ mb: 3 }}>
         Order Progress
       </Typography>
-      <Stack spacing={3}>
+      <Stack spacing={2}>
         <Stack direction="row" spacing={2}>
           <Chip label="Order Placed" color="success" />
         </Stack>
